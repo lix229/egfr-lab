@@ -1,0 +1,62 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "navigator/gpt-oss-120b",
+  "provider": {
+    "navigator": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "UF NaviGator",
+      "options": {
+        "baseURL": "https://api.ai.it.ufl.edu/v1"
+      },
+      "models": {
+        "gpt-oss-120b": {
+          "name": "gpt-oss-120b (HiPerGator)",
+          "tool_call": true,
+          "reasoning": true,
+          "limit": { "context": 128000, "output": 16384 },
+          "cost": { "input": 0.06, "output": 0.15 }
+        },
+        "nemotron-3-super-120b-a12b": {
+          "name": "Nemotron 3 Super (HiPerGator)",
+          "tool_call": true,
+          "reasoning": true,
+          "limit": { "context": 262144, "output": 16384 },
+          "cost": { "input": 0.06, "output": 0.24 }
+        }
+      }
+    }
+  },
+  "permission": {
+    "edit": {
+      "*": "ask",
+      "data/*": "deny",
+      "*/data/*": "deny",
+      "tests/*": "deny",
+      "*/tests/*": "deny",
+      "checks/*": "deny",
+      "*/checks/*": "deny"
+    },
+    "read": {
+      "*": "allow",
+      "*answers.json": "deny"
+    },
+    "bash": {
+      "*": "ask",
+      "uv run pytest*": "allow",
+      "uv run checks/check.py*": "allow",
+      "ls*": "allow",
+      "head *": "allow",
+      "wc *": "allow",
+      "rm *": "deny"
+    },
+    "webfetch": "deny"
+  },
+  "mcp": {
+    "pubmed": {
+      "type": "local",
+      "command": ["uv", "run", "--script", "tools/pubmed.py"],
+      "enabled": true,
+      "timeout": 120000
+    }
+  }
+}

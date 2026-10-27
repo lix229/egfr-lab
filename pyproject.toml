@@ -1,0 +1,13 @@
+[project]
+name = "egfr-lab"
+version = "1.0.0"
+description = "A hands-on agent exercise on synthetic creatinine results (no real patients)."
+requires-python = ">=3.10"
+dependencies = ["pandas>=2.2,<3", "matplotlib>=3.8", "pytest>=8.0"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
