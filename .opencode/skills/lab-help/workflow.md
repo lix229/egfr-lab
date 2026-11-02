@@ -42,8 +42,8 @@ pitfall.
 
 ## 5. A second opinion (another model)
 - **Aim:** a different model, with different blind spots, reviews the draft against the data, `AGENTS.md` and
-  `results/`, and shows how it checked. A second agent beside the first: in herdr, ctrl+b then v, `opencode` in this
-  folder, `/models`, **Nemotron 3 Super**.
+  `results/`, and shows how it checked. A second agent: open a second terminal, `cd egfr-lab`, `opencode`,
+  `/models`, **Nemotron 3 Super**.
 - **Done when:** it has found what's wrong with the draft, and they've confirmed it against the files.
 
 ## 6. Write it up, with the evidence

@@ -26,7 +26,7 @@ If it asks to open a PubMed page (a web fetch), say yes.
     Recompute the rapid decliners from the raw files, handling what we found in each site's file. Put the code in egfr.py so that `uv run pytest` passes without changing the tests, write results/ as AGENTS.md says, then run `uv run checks/check.py` and fix what it reports until it says PASS. Show me the checker's last output.
 
 ## 5. A second opinion
-In a second agent, with Nemotron 3 Super picked in `/models`:
+In a second terminal (`cd egfr-lab`, then `opencode`), with Nemotron 3 Super picked in `/models`:
 
     Review reports/draft_report.md against the data, AGENTS.md and results/. What would you change before it goes to the committee? Show me how you checked.
 
