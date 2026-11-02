@@ -38,7 +38,9 @@
     },
     "read": {
       "*": "allow",
-      "*answers.json": "deny"
+      "*answers.json": "deny",
+      "*lab-help/workflow.md": "ask",
+      "*lab-help/prompts.md": "ask"
     },
     "bash": {
       "*": "ask",
@@ -46,6 +48,7 @@
       "uv run checks/check.py*": "allow",
       "ls*": "allow",
       "head *": "allow",
+      "head *lab-help*": "ask",
       "wc *": "allow",
       "rm *": "deny"
     },

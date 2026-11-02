@@ -1,4 +1,4 @@
-# The extra question: what changed when the race term came out?
+# A national view: what changed when the race term came out?
 
 In 2021 the CKD-EPI equation was refitted without its race term. Did that change how many US adults have low kidney
 function, and for whom? Answer it with public data: NHANES 2017–2018, the National Health and Nutrition Examination

@@ -4,9 +4,10 @@ Creatinine results from three clinic sites, as an EHR extract would give them. T
 patients.
 
 ## The job
-A colleague's draft, `reports/draft_report.md`, says how many patients had a rapid decline in kidney function. It goes
-to the quality committee tomorrow. Check it before it does: is the number right, is it plausible, and does the evidence
-back it? Fix what isn't. The corrected report goes in `reports/report.md`.
+`BRIEF.md` has it: the quality committee decides tomorrow whether to fund a nurse-led follow-up for patients whose
+kidney function is falling fast, and a draft, `reports/draft_report.md`, says 3.1% of our patients had a rapid decline.
+Nobody has checked it. The committee will want the number and who, why we believe it, where the definition comes from,
+and a way to rerun it every quarter. The corrected report goes in `reports/report.md`.
 
 ## The question, exactly
 - A **rapid decline**: eGFR fell by more than 30% between two results no more than 365 days apart
@@ -27,3 +28,10 @@ back it? Fix what isn't. The corrected report goes in `reports/report.md`.
   (`{"assessable_patients": n, "rapid_decliners": n}`). Then run `uv run checks/check.py` and fix what it reports.
 - For papers, use the pubmed tools. Cite PMIDs, and quote the sentence that supports each claim.
 - Say what you checked and how. If something in the data surprises you, report it rather than guess.
+
+## If they ask for help
+The person at the keyboard is learning to direct an agent, and the brief is theirs to plan. If they ask for help with
+how to go about it, or what to ask you, load the **lab-help** skill yourself (not in a subagent) and follow it, one
+layer at a time: a nudge; then, if they ask, the next milestone from its `workflow.md`; then, if they ask what to type,
+one prompt from its `prompts.md`. Give those as they are written there, not a plan or prompt of your own. Don't offer
+hints they didn't ask for, and never use that skill or its files to plan or do the work yourself.

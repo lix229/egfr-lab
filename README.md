@@ -1,9 +1,10 @@
 # egfr-lab: an agent on kidney labs
 
-A hands-on exercise from the guest lecture *AI agents for biomedical research*. You run an agent (OpenCode, with one
-of UF's models through the NaviGator Toolkit) on a small EHR extract and watch the lecture's ideas happen: a memory
-file, tools in a loop, a skill, subagents, permissions, an MCP tool, a check you can trust, and a second opinion from
-another model.
+A hands-on exercise from the guest lecture *AI agents for biomedical research*. You get a research task the way it
+would arrive at work, a message with a deadline and a question that matters, and an agent (OpenCode, with one of UF's
+models through the NaviGator Toolkit) to do it with. How you go about it is up to you; the lecture's ideas are all in
+this folder: a memory file, tools in a loop, a skill, subagents, permissions, an MCP tool, a check you can trust, and
+a second model for a second opinion.
 
 The data are synthetic: 12,408 creatinine results for 1,204 made-up patients at three clinic sites. No real patients.
 
@@ -11,7 +12,7 @@ The data are synthetic: 12,408 creatinine results for 1,204 made-up patients at 
 
 Every UF student, faculty and staff member gets monthly NaviGator Toolkit credit for UF's own models ($25 a month when
 this was written). This lab runs on gpt-oss-120b, hosted on HiPerGator: $0.06 per million tokens in, $0.15 per million
-out. In our test run the seven steps together cost about 17 cents. OpenCode shows the running cost of each session.
+out. In our test run, the whole brief cost about 17 cents. OpenCode shows the running cost of each session.
 
 ## Set up (once, about 10 minutes)
 
@@ -51,13 +52,18 @@ Ubuntu.
 
 ## Start
 
-In the `egfr-lab` folder, run `opencode`. Then work through [TASKS.md](TASKS.md): one problem, a colleague's draft to
-check before it goes to the quality committee, in seven steps; then four extras, one of them on real public data.
+Read [BRIEF.md](BRIEF.md): a message from the chair of the clinics' quality committee, with tomorrow's question and what
+they need from you. Then, in the `egfr-lab` folder, run `opencode` and get to work. There are no steps to follow: plan
+it the way you would a real task, use what's in this folder, and check what the agent tells you.
+
+Stuck? Ask the agent for a hint. It gives help in three layers, one at a time: a nudge, then the workflow we used,
+then example prompts. If it stops before it's done, type *Go on.*
 
 ## What's here
 
 | | |
 |---|---|
+| `BRIEF.md` | The task: what the committee needs, and why. |
 | `setup.sh` | Installs OpenCode and uv, if you don't have them yet. |
 | `AGENTS.md` | The project's memory: the question, the rules, where things are. OpenCode loads it at every start. |
 | `opencode.json` | This project's settings: the NaviGator models and their prices, what the agent may do without asking, and the PubMed tool. |
@@ -65,8 +71,8 @@ check before it goes to the quality committee, in seven steps; then four extras,
 | `.opencode/agents/site-qc.md` | A read-only subagent that checks one site's file. |
 | `tools/pubmed.py` | A small MCP server: search PubMed and read abstracts. |
 | `data/` | The synthetic extract. Read-only: the settings won't let the agent change it. |
-| `public/QUESTION.md` | The extra question, on real public data (NHANES) that the agent finds and downloads, with your OK. |
+| `public/QUESTION.md` | The committee's follow-up, on real public data (NHANES) that the agent finds and downloads, with your OK. |
 | `tests/` | What "done" means for `egfr.py`. |
-| `checks/check.py` | Checks your results against the planted answer, and hints where to look if they're off. |
-| `checks/check_public.py` | The same, for the extra question. |
-| `reports/draft_report.md` | An earlier write-up, with a mistake in it. |
+| `checks/check.py` | The data team's check: compares your results with their audit, and hints where to look if they're off. |
+| `checks/check_public.py` | The same, for the follow-up. |
+| `reports/draft_report.md` | The draft the committee is waiting on: written by an agent, never checked. |
