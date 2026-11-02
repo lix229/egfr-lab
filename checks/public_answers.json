@@ -1,0 +1,33 @@
+{
+ "about": "check_public.py's answer key, computed from NHANES 2017-2018 (DEMO_J, BIOPRO_J) by handson/build/nhanes_reference.py. The numbers are in the clear: the lab's settings keep the agent from reading this file, and copying them would skip the exercise.",
+ "answer": {
+  "adults": 4869,
+  "below_60_2009": 7.3,
+  "below_60_2021": 6.0,
+  "black_below_60_2009": 7.5,
+  "black_below_60_2021": 10.6
+ },
+ "slips": {
+  "unweighted": {
+   "adults": 4869,
+   "below_60_2009": 9.7,
+   "below_60_2021": 9.1,
+   "black_below_60_2009": 10.7,
+   "black_below_60_2021": 14.9
+  },
+  "age_18": {
+   "adults": 5107,
+   "below_60_2009": 7.1,
+   "below_60_2021": 5.8,
+   "black_below_60_2009": 7.3,
+   "black_below_60_2021": 10.3
+  },
+  "pregnant_kept": {
+   "adults": 4916,
+   "below_60_2009": 7.2,
+   "below_60_2021": 6.0,
+   "black_below_60_2009": 7.4,
+   "black_below_60_2021": 10.5
+  }
+ }
+}
