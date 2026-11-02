@@ -12,7 +12,7 @@ The data are synthetic: 12,408 creatinine results for 1,204 made-up patients at 
 
 Every UF student, faculty and staff member gets monthly NaviGator Toolkit credit for UF's own models ($25 a month when
 this was written). This lab runs on gpt-oss-120b, hosted on HiPerGator: $0.06 per million tokens in, $0.15 per million
-out. In our test run, the whole brief cost about 17 cents. OpenCode shows the running cost of each session.
+out. In our test run, the whole task cost about 17 cents. OpenCode shows the running cost of each session.
 
 ## Set up (once, about 10 minutes)
 
@@ -52,9 +52,10 @@ Ubuntu.
 
 ## Start
 
-Read [BRIEF.md](BRIEF.md): a message from the chair of the clinics' quality committee, with tomorrow's question and what
-they need from you. Then, in the `egfr-lab` folder, run `opencode` and get to work. There are no steps to follow: plan
-it the way you would a real task, use what's in this folder, and check what the agent tells you.
+In the `egfr-lab` folder, run `opencode`, then type `/start`. Your task arrives the way it would at work: a message
+from the chair of the clinics' quality committee, with tomorrow's question and what they need from you. There are no
+steps to follow: plan it the way you would a real task, use what's in this folder, and check what the agent tells you.
+Type `/start` again whenever you want to reread the message.
 
 Stuck? Ask the agent for a hint. It gives help in three layers, one at a time: a nudge, then the workflow we used,
 then example prompts. If it stops before it's done, type *Go on.*
@@ -63,11 +64,11 @@ then example prompts. If it stops before it's done, type *Go on.*
 
 | | |
 |---|---|
-| `BRIEF.md` | The task: what the committee needs, and why. |
 | `setup.sh` | Installs OpenCode and uv, if you don't have them yet. |
 | `AGENTS.md` | The project's memory: the question, the rules, where things are. OpenCode loads it at every start. |
 | `opencode.json` | This project's settings: the NaviGator models and their prices, what the agent may do without asking, and the PubMed tool. |
-| `.opencode/skills/egfr-qc/` | The lab's QC protocol, as a skill: loaded only when needed. |
+| `.opencode/commands/start.md` | `/start`: your task arrives, as a message. |
+| `.opencode/skills/` | Three skills, each loaded only when needed: `lab-start` (the scene and the message), `egfr-qc` (the lab's QC protocol), `lab-help` (hints, when you ask). |
 | `.opencode/agents/site-qc.md` | A read-only subagent that checks one site's file. |
 | `tools/pubmed.py` | A small MCP server: search PubMed and read abstracts. |
 | `data/` | The synthetic extract. Read-only: the settings won't let the agent change it. |

@@ -1,6 +1,6 @@
 # The workflow we used (layer 2: a spoiler)
 
-One way through the brief, in seven milestones. Each uses one idea from the lecture. Give the student the next
+One way through Sam's task, in seven milestones. Each uses one idea from the lecture. Give the student the next
 milestone only, unless they ask for all of it: what to aim for, how they'll know it's done, and, if it helps, the
 pitfall.
 

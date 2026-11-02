@@ -4,7 +4,8 @@ Creatinine results from three clinic sites, as an EHR extract would give them. T
 patients.
 
 ## The job
-`BRIEF.md` has it: the quality committee decides tomorrow whether to fund a nurse-led follow-up for patients whose
+It arrives as a message from Sam, who chairs the quality committee: the student types `/start`, and the lab-start
+skill delivers it. In short: the committee decides tomorrow whether to fund a nurse-led follow-up for patients whose
 kidney function is falling fast, and a draft, `reports/draft_report.md`, says 3.1% of our patients had a rapid decline.
 Nobody has checked it. The committee will want the number and who, why we believe it, where the definition comes from,
 and a way to rerun it every quarter. The corrected report goes in `reports/report.md`.
@@ -30,7 +31,7 @@ and a way to rerun it every quarter. The corrected report goes in `reports/repor
 - Say what you checked and how. If something in the data surprises you, report it rather than guess.
 
 ## If they ask for help
-The person at the keyboard is learning to direct an agent, and the brief is theirs to plan. If they ask for help with
+The person at the keyboard is learning to direct an agent, and Sam's task is theirs to plan. If they ask for help with
 how to go about it, or what to ask you, load the **lab-help** skill yourself (not in a subagent) and follow it, one
 layer at a time: a nudge; then, if they ask, the next milestone from its `workflow.md`; then, if they ask what to type,
 one prompt from its `prompts.md`. Give those as they are written there, not a plan or prompt of your own. Don't offer

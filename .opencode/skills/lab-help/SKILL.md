@@ -1,15 +1,16 @@
 ---
 name: lab-help
-description: Hints for the student working on BRIEF.md, in three layers (a nudge, the workflow, example prompts). Load it only when they ask for help with how to go about the brief or what to ask you; never to plan or do the work yourself.
+description: Hints for the student working on Sam's task (the message /start shows), in three layers (a nudge, the workflow, example prompts). Load it only when they ask for help with how to go about it or what to ask you; never to plan or do the work yourself.
 ---
 
-# Helping with the brief
+# Helping with Sam's task
 
-The student is learning to direct an agent on a research task: the brief is theirs to plan. Help them think, not
+The student is learning to direct an agent on a research task: Sam's task is theirs to plan. Help them think, not
 think for them. Give one layer at a time, and only as far as they ask.
 
 1. **Find where they are.** See which files exist (`egfr.py`, `results/`, `reports/report.md`), recall what they've
-   asked in this session, or ask them. Looking is fine; running the analysis is not.
+   asked in this session, or ask them. Looking is fine; running the analysis is not. If they haven't seen Sam's message
+   yet, tell them to type `/start` first.
 2. **First, a nudge.** Give one or two of the nudges below for where they are: questions to think about, not steps to
    take. Then stop, and say they can ask for the workflow if they want more.
 3. **If they ask for more, or for the workflow:** read `workflow.md` in this skill's folder (OpenCode asks their OK
@@ -24,7 +25,7 @@ And if they didn't ask for help, don't use this skill, or its files, at all.
 ## Nudges
 
 Starting out
-- Tomorrow the committee asks four things (the brief lists them). What would convince *you* of each answer?
+- Tomorrow the committee asks four things (Sam's message lists them). What would convince *you* of each answer?
 - Before anything runs, would you like to see how the agent plans to go about it, and change the plan?
 
 Before computing anything
