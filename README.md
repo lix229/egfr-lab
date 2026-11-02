@@ -48,7 +48,9 @@ Ubuntu.
    opencode run "Reply with one word: ready"
    ```
 
-   It should print *ready*.
+   It should print *ready*. It works here because this folder's `opencode.json` tells OpenCode where `navigator` is:
+   NaviGator's address and its two models. In any other folder OpenCode doesn't know that yet; to use UF's models
+   there too, see [Use NaviGator outside the lab](#use-navigator-outside-the-lab).
 
 ## Start
 
@@ -77,3 +79,68 @@ then example prompts. If it stops before it's done, type *Go on.*
 | `checks/check.py` | The data team's check: compares your results with their audit, and hints where to look if they're off. |
 | `checks/check_public.py` | The same, for the follow-up. |
 | `reports/draft_report.md` | The draft the committee is waiting on: written by an agent, never checked. |
+
+## Use NaviGator outside the lab
+
+Your key works in any folder, but OpenCode only knows where `navigator` is from an `opencode.json`. This lab has its
+own, and a project's `opencode.json` applies only inside that project. Elsewhere, OpenCode doesn't stop with an error:
+it quietly uses a free model of its own (in our test, `big-pickle`, from OpenCode's own service), so your prompts and
+anything the agent reads go off UF's servers.
+
+To use UF's models everywhere, put the same provider lines in your own settings file, `~/.config/opencode/opencode.json`,
+which OpenCode reads in every folder. Create it if it isn't there (`mkdir -p ~/.config/opencode` first); if it is, add
+the `"provider"` entry to what's in it.
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "navigator/gpt-oss-120b",
+  "provider": {
+    "navigator": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "UF NaviGator",
+      "options": {
+        "baseURL": "https://api.ai.it.ufl.edu/v1"
+      },
+      "models": {
+        "gpt-oss-120b": {
+          "name": "gpt-oss-120b (HiPerGator)",
+          "tool_call": true,
+          "reasoning": true,
+          "limit": { "context": 128000, "output": 16384 },
+          "cost": { "input": 0.06, "output": 0.15 }
+        },
+        "nemotron-3-super-120b-a12b": {
+          "name": "Nemotron 3 Super (HiPerGator)",
+          "tool_call": true,
+          "reasoning": true,
+          "limit": { "context": 262144, "output": 16384 },
+          "cost": { "input": 0.06, "output": 0.24 }
+        }
+      }
+    }
+  }
+}
+```
+
+- `navigator` must match the ID you gave `/connect`; that's how OpenCode pairs the key with the address.
+- `baseURL` is NaviGator's address. `cost` is UF's price per million tokens, so OpenCode can show what a session costs.
+- A model answers only if you picked it when you made your key. To add another of UF's models, add it to your key
+  in the NaviGator portal, then add an entry under `"models"` with its ID.
+
+Then check it from any folder that isn't the lab, for example your home folder:
+
+```
+cd ~
+opencode run "Reply with one word: ready"
+```
+
+It should print *ready*, under a line that names the model: `gpt-oss-120b`, not `big-pickle`. In OpenCode itself, the
+model's name is at the bottom of the screen.
+
+The lab's other settings stay in the lab. Out of the box OpenCode lets the agent edit files and run commands without
+asking; the lab makes it ask first. For the same everywhere, add this to your settings file, next to `"provider"`:
+
+```json
+"permission": { "edit": "ask", "bash": "ask" }
+```
